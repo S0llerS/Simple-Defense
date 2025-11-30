@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn5xnijw35i3f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfb3y"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nyfad"]
+material = SubResource("StandardMaterial3D_vfb3y")
+size = Vector3(1, 0.25, 1)
+
+[node name="GrassTile" type="MeshInstance3D" unique_id=1892445986]
+mesh = SubResource("BoxMesh_nyfad")

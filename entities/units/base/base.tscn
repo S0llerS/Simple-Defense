@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://h1cit4qtc5b7"]
+
+[ext_resource type="Script" uid="uid://bowa4bjdiddrk" path="res://entities/units/unit.gd" id="1_whwru"]
+[ext_resource type="PackedScene" uid="uid://bgvvpn0tee1pl" path="res://components/HealthComponent/health_component.tscn" id="1_wyvk8"]
+[ext_resource type="Script" uid="uid://bkatemoust6un" path="res://assets/resources/UnitStats.gd" id="2_2ghb1"]
+[ext_resource type="PackedScene" uid="uid://bbv8xay3hndu1" path="res://components/HurtboxComponent/hurtbox_component.tscn" id="3_whwru"]
+
+[sub_resource type="Resource" id="Resource_44q32"]
+script = ExtResource("2_2ghb1")
+max_health = 100
+health = 100
+metadata/_custom_type_script = "uid://bkatemoust6un"
+
+[sub_resource type="BoxMesh" id="BoxMesh_mafsn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wyvk8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ghb1"]
+
+[node name="Base" type="StaticBody3D" unique_id=314470655 node_paths=PackedStringArray("health_component")]
+script = ExtResource("1_whwru")
+unit_stats = SubResource("Resource_44q32")
+health_component = NodePath("HealthComponent")
+
+[node name="HealthComponent" parent="." unique_id=1741741588 instance=ExtResource("1_wyvk8")]
+health = 100
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=342787079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_mafsn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=604473537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_wyvk8")
+
+[node name="HurtboxComponent" parent="." unique_id=1916317057 instance=ExtResource("3_whwru")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponent" unique_id=1556649562]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_2ghb1")

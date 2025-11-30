@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8bbn80bxsg30"]
+
+[ext_resource type="Script" uid="uid://dn8kw3exdthjl" path="res://entities/monsters/monster_spawner/monster_spawner.gd" id="1_8slle"]
+[ext_resource type="PackedScene" uid="uid://cj45emwc72kvg" path="res://entities/monsters/basic_monster/basic_monster.tscn" id="2_bckms"]
+
+[node name="MonsterSpawner" type="Node3D" unique_id=617661787]
+script = ExtResource("1_8slle")
+monster_scene = ExtResource("2_bckms")
+
+[node name="WaveTimer" type="Timer" parent="." unique_id=1652525699]
+unique_name_in_owner = true
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

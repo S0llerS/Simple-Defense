@@ -1,0 +1,270 @@
+[gd_scene load_steps=5 format=3 uid="uid://dd14byg3htvt7"]
+
+[ext_resource type="Script" uid="uid://yr0b80od37cs" path="res://scenes/menu/game_tabs/game_tabs.gd" id="1_08i1r"]
+[ext_resource type="PackedScene" uid="uid://dj027xhj1bt3e" path="res://components/ButtonComponent/button_component.tscn" id="1_e7662"]
+[ext_resource type="Theme" uid="uid://cd7js87j345m4" path="res://assets/themes/default.tres" id="1_ftq1x"]
+[ext_resource type="Texture2D" uid="uid://cnoq1mfk1hfdw" path="res://assets/icons/swords-main.png" id="3_6036v"]
+
+[node name="GameTabs" type="Control" unique_id=1556563741 node_paths=PackedStringArray("tabs")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ftq1x")
+script = ExtResource("1_08i1r")
+tabs = NodePath("Tabs")
+
+[node name="Shop" type="Control" parent="." unique_id=1171331862]
+anchors_preset = 0
+offset_left = 500.0
+offset_top = 250.0
+offset_right = 500.0
+offset_bottom = 250.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Shop" unique_id=1662981571]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Shop"
+
+[node name="Main" type="Control" parent="." unique_id=1016998206]
+anchors_preset = 0
+offset_left = 500.0
+offset_top = 250.0
+offset_right = 500.0
+offset_bottom = 250.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main" unique_id=2012985417]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -40.0
+offset_right = 44.5
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Main/VBoxContainer" unique_id=1001290018]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Menu"
+horizontal_alignment = 1
+
+[node name="Play" type="Button" parent="Main/VBoxContainer" unique_id=829772086]
+layout_mode = 2
+text = "Play"
+
+[node name="ButtonComponent" parent="Main/VBoxContainer/Play" unique_id=703297604 instance=ExtResource("1_e7662")]
+
+[node name="Upgrade" type="Control" parent="." unique_id=961980804]
+anchors_preset = 0
+offset_left = 500.0
+offset_top = 250.0
+offset_right = 500.0
+offset_bottom = 250.0
+
+[node name="Label" type="Label" parent="Upgrade" unique_id=247663062]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Upgrade"
+
+[node name="Tabs" type="HBoxContainer" parent="." unique_id=1552660763]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -168.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Tabs" unique_id=1423262591]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="Tabs/Control" unique_id=303440520]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.27862957, 0.71495765, 1)
+
+[node name="Button" type="Button" parent="Tabs/Control" unique_id=266169466]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Tabs/Control" unique_id=608564357]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tabs/Control/MarginContainer" unique_id=795950494]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Tabs/Control/MarginContainer/VBoxContainer" unique_id=1596586826]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_6036v")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Tabs/Control/MarginContainer/VBoxContainer" unique_id=1688683545]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Main"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainTab" type="Button" parent="Tabs" unique_id=1416641124]
+custom_minimum_size = Vector2(168, 168)
+layout_mode = 2
+
+[node name="Container" type="VBoxContainer" parent="Tabs/MainTab" unique_id=1895947064]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Tabs/MainTab/Container" unique_id=1921479804]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_6036v")
+expand_mode = 4
+
+[node name="Label" type="Label" parent="Tabs/MainTab/Container/TextureRect" unique_id=1321703769]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -206.5
+offset_top = -23.0
+offset_right = 206.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Main"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainTab2" type="Button" parent="Tabs" unique_id=981083341]
+custom_minimum_size = Vector2(168, 168)
+layout_mode = 2
+
+[node name="Container" type="VBoxContainer" parent="Tabs/MainTab2" unique_id=167201826]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Tabs/MainTab2/Container" unique_id=630542787]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_6036v")
+expand_mode = 4
+
+[node name="Label" type="Label" parent="Tabs/MainTab2/Container/TextureRect" unique_id=1532941308]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -206.5
+offset_top = -23.0
+offset_right = 206.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Main"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainTab3" type="Button" parent="Tabs" unique_id=2098819360]
+custom_minimum_size = Vector2(168, 168)
+layout_mode = 2
+
+[node name="Container" type="VBoxContainer" parent="Tabs/MainTab3" unique_id=2007668812]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Tabs/MainTab3/Container" unique_id=1311789307]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_6036v")
+expand_mode = 4
+
+[node name="Label" type="Label" parent="Tabs/MainTab3/Container/TextureRect" unique_id=27144659]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -206.5
+offset_top = -23.0
+offset_right = 206.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Main"
+horizontal_alignment = 1
+vertical_alignment = 1

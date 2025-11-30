@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://14j3pvf2xkoa"]
+
+[ext_resource type="Script" uid="uid://bn7siatb1abpf" path="res://entities/projectiles/projectile.gd" id="1_v8y0d"]
+[ext_resource type="PackedScene" uid="uid://b62781igt6lcr" path="res://components/AttackComponent/attack_component.tscn" id="2_m6wx4"]
+[ext_resource type="PackedScene" uid="uid://b511r0ycm1bka" path="res://components/HitboxComponent/hitbox_component.tscn" id="2_wt743"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_2hx6w"]
+radius = 0.25
+height = 0.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2hx6w"]
+radius = 0.25
+
+[node name="BasicProjectile" type="CharacterBody3D" unique_id=1109496704 node_paths=PackedStringArray("attack_component")]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("1_v8y0d")
+attack_component = NodePath("AttackComponent")
+
+[node name="AttackComponent" parent="." unique_id=1804845860 instance=ExtResource("2_m6wx4")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=803456729]
+mesh = SubResource("SphereMesh_2hx6w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1032512302]
+shape = SubResource("SphereShape3D_2hx6w")
+
+[node name="HitboxComponent" parent="." unique_id=822219714 instance=ExtResource("2_wt743")]
+collision_layer = 8
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent" unique_id=1136526309]
+shape = SubResource("SphereShape3D_2hx6w")
+
+[connection signal="area_entered" from="HitboxComponent" to="." method="_on_hitbox_component_area_entered"]

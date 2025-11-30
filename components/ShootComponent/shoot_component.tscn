@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuifxspo0fkfp"]
+
+[ext_resource type="Script" uid="uid://pa0cbtgr2q84" path="res://components/ShootComponent/shoot_component.gd" id="1_u4pex"]
+[ext_resource type="PackedScene" uid="uid://14j3pvf2xkoa" path="res://entities/projectiles/basic_projectile/basic_projectile.tscn" id="2_jgdub"]
+
+[node name="ShootComponent" type="Node3D" unique_id=187719664]
+script = ExtResource("1_u4pex")
+projectile_scene = ExtResource("2_jgdub")
+
+[node name="Timer" type="Timer" parent="." unique_id=201847601]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

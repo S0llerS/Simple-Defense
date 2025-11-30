@@ -1,0 +1,44 @@
+--- Bash Royale ---
+
+CONSIDERATIONS:
+- 3D
+- Plants vs Monsters
+
+TODO:
+- deck system
+- shop system
+- grid system
+- units system
+- placing/merging system
+- enemies system
+- p2p connection
+- saving system
+- account system
+
+STRUCTURE:
+- 
+
+SCENES:
+- splash
+- main
+- deck
+- shop
+- clan
+- arena
+
+GAME DATA:
+- mana
+- card summon cost
+- grid
+- what units and where are they placed + their level/rank
+- unit upgrades
+
+PLAYER DATA:
+- what units/cards has unlocked
+- what level are they
+- how many copies to upgrade said cards
+- gold and gems
+- shop ( each individual player has daily shop only for them )
+- player name
+- trophies
+- also other data like: day joined, enemies killed, total damage dealt etc...

@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://cnuick3bw3jd3"]
+
+[ext_resource type="Script" uid="uid://bowa4bjdiddrk" path="res://entities/units/unit.gd" id="1_84nt6"]
+[ext_resource type="Script" uid="uid://bkatemoust6un" path="res://assets/resources/UnitStats.gd" id="2_4o10w"]
+[ext_resource type="PackedScene" uid="uid://bgvvpn0tee1pl" path="res://components/HealthComponent/health_component.tscn" id="3_8786g"]
+[ext_resource type="PackedScene" uid="uid://bwpj3pnosy0fq" path="res://components/RangeComponent/range_component.tscn" id="5_d371b"]
+[ext_resource type="PackedScene" uid="uid://bbv8xay3hndu1" path="res://components/HurtboxComponent/hurtbox_component.tscn" id="6_x0b5j"]
+
+[sub_resource type="Resource" id="Resource_cexd0"]
+script = ExtResource("2_4o10w")
+title = "Big Wall"
+price = 25
+max_health = 100
+health = 0
+attack_range = 1.0
+metadata/_custom_type_script = "uid://bkatemoust6un"
+
+[sub_resource type="BoxMesh" id="BoxMesh_1xfyr"]
+size = Vector3(0.8, 0.8, 0.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hh1ji"]
+size = Vector3(0.8, 0.8, 0.8)
+
+[node name="Wall" type="StaticBody3D" unique_id=423651244 node_paths=PackedStringArray("health_component", "hurtbox_component", "range_component")]
+script = ExtResource("1_84nt6")
+unit_stats = SubResource("Resource_cexd0")
+health_component = NodePath("HealthComponent")
+hurtbox_component = NodePath("HurtboxComponent")
+range_component = NodePath("RangeComponent")
+
+[node name="HealthComponent" parent="." unique_id=1741741588 instance=ExtResource("3_8786g")]
+health = null
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1950167551]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+mesh = SubResource("BoxMesh_1xfyr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1108003251]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("BoxShape3D_hh1ji")
+
+[node name="RangeComponent" parent="." unique_id=2002248002 node_paths=PackedStringArray("range_visuals") instance=ExtResource("5_d371b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+collision_layer = 0
+collision_mask = 2
+range_visuals = NodePath("RangeVisuals")
+
+[node name="HurtboxComponent" parent="." unique_id=1916317057 instance=ExtResource("6_x0b5j")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0.4, 0)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponent" unique_id=49362693]
+shape = SubResource("BoxShape3D_hh1ji")
+
+[connection signal="input_event" from="HurtboxComponent" to="." method="_on_hurtbox_component_input_event"]

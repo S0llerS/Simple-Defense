@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://cve082tko23l6"]
+
+[ext_resource type="Script" uid="uid://bbdp3c1ce07bd" path="res://scenes/main/ui/ui.gd" id="1_2q31f"]
+[ext_resource type="Theme" uid="uid://cd7js87j345m4" path="res://assets/themes/default.tres" id="2_nf0va"]
+[ext_resource type="PackedScene" uid="uid://b0swg4gh35ntl" path="res://scenes/main/ui/unit_container/unit_container.tscn" id="3_3q8gq"]
+[ext_resource type="PackedScene" uid="uid://p4ywuh10ffdg" path="res://scenes/main/ui/unit_upgrade/unit_upgrade.tscn" id="3_ex8bf"]
+
+[node name="UI" type="CanvasLayer" unique_id=905987130]
+script = ExtResource("1_2q31f")
+
+[node name="Control" type="Control" parent="." unique_id=486444409]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("2_nf0va")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1751820803]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer" unique_id=565753664]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Health" type="Label" parent="Control/MarginContainer/HBoxContainer" unique_id=1368593240]
+unique_name_in_owner = true
+layout_mode = 2
+text = "HP: 100"
+
+[node name="Money" type="Label" parent="Control/MarginContainer/HBoxContainer" unique_id=1615097910]
+unique_name_in_owner = true
+layout_mode = 2
+text = "$100"
+
+[node name="Wave" type="Label" parent="Control/MarginContainer/HBoxContainer" unique_id=1272282344]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "WAVE: 1"
+horizontal_alignment = 2
+
+[node name="HBoxContainerUnit" type="HBoxContainer" parent="Control/MarginContainer" unique_id=868870940]
+layout_mode = 2
+alignment = 2
+
+[node name="UnitUpgrade" parent="Control/MarginContainer/HBoxContainerUnit" unique_id=807638241 instance=ExtResource("3_ex8bf")]
+layout_mode = 2
+
+[node name="UnitContainer" parent="Control/MarginContainer/HBoxContainerUnit" unique_id=734265126 instance=ExtResource("3_3q8gq")]
+layout_mode = 2

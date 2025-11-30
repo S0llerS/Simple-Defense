@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddgqff2wq1kbm"]
+
+[ext_resource type="Script" uid="uid://2tvd3qxe75jp" path="res://scenes/main/ui/unit_container/unit_cell/unit_cell.gd" id="1_u17t5"]
+[ext_resource type="PackedScene" uid="uid://wm0gl4wmprg5" path="res://entities/units/basic_tower/basic_tower.tscn" id="2_0tsd6"]
+[ext_resource type="PackedScene" uid="uid://dj027xhj1bt3e" path="res://components/ButtonComponent/button_component.tscn" id="2_ry1n1"]
+
+[node name="UnitCell" type="Button" unique_id=1860700022]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("1_u17t5")
+unit_scene = ExtResource("2_0tsd6")
+
+[node name="ButtonComponent" parent="." unique_id=703297604 instance=ExtResource("2_ry1n1")]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1852538281]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.3019608, 0.40784314, 1, 1)
+
+[node name="Price" type="Label" parent="." unique_id=1321928989]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "$100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]

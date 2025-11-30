@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0swg4gh35ntl"]
+
+[ext_resource type="Script" uid="uid://ccn2xbkdxk7l5" path="res://scenes/main/ui/unit_container/unit_container.gd" id="1_crakx"]
+[ext_resource type="PackedScene" uid="uid://ddgqff2wq1kbm" path="res://scenes/main/ui/unit_container/unit_cell/unit_cell.tscn" id="1_cv7kn"]
+[ext_resource type="PackedScene" uid="uid://cp4uk8f5vph6m" path="res://entities/units/giga_tower/giga_tower.tscn" id="3_8slf6"]
+[ext_resource type="PackedScene" uid="uid://cesregxkyh2ch" path="res://entities/units/splash_tower/splash_tower.tscn" id="3_m0u6u"]
+[ext_resource type="PackedScene" uid="uid://cnuick3bw3jd3" path="res://entities/units/wall/wall.tscn" id="5_bpmmd"]
+
+[node name="UnitContainer" type="PanelContainer" unique_id=734265126]
+size_flags_horizontal = 8
+size_flags_vertical = 4
+script = ExtResource("1_crakx")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=966999022]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=135468354]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer" unique_id=344991803]
+layout_mode = 2
+columns = 2
+
+[node name="Basic" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=235538736 instance=ExtResource("1_cv7kn")]
+layout_mode = 2
+
+[node name="Splash" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=906760720 instance=ExtResource("1_cv7kn")]
+layout_mode = 2
+unit_scene = ExtResource("3_m0u6u")
+
+[node name="Giga" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1870478321 instance=ExtResource("1_cv7kn")]
+layout_mode = 2
+unit_scene = ExtResource("3_8slf6")
+
+[node name="Wall" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1122870140 instance=ExtResource("1_cv7kn")]
+layout_mode = 2
+unit_scene = ExtResource("5_bpmmd")
+
+[node name="Close" type="Button" parent="MarginContainer/VBoxContainer" unique_id=607456595]
+layout_mode = 2
+text = "Close"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Close" to="." method="_on_close_pressed"]

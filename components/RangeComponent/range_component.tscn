@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwpj3pnosy0fq"]
+
+[ext_resource type="Script" uid="uid://48fo54fks5m0" path="res://components/RangeComponent/range_component.gd" id="1_qkp7l"]
+[ext_resource type="Material" uid="uid://b1je0sfryaexv" path="res://assets/materials/range_active.tres" id="2_ch8qx"]
+[ext_resource type="Material" uid="uid://bgannk2wdpgvl" path="res://assets/materials/range_inactive.tres" id="3_ipamn"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ch8qx"]
+radius = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ipamn"]
+material = ExtResource("2_ch8qx")
+top_radius = 1.0
+bottom_radius = 1.0
+height = 0.01
+
+[node name="RangeComponent" type="Area3D" unique_id=2002248002]
+script = ExtResource("1_qkp7l")
+range_active = ExtResource("2_ch8qx")
+range_inactive = ExtResource("3_ipamn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=49400954]
+shape = SubResource("SphereShape3D_ch8qx")
+
+[node name="RangeVisuals" type="MeshInstance3D" parent="." unique_id=710068109]
+visible = false
+mesh = SubResource("CylinderMesh_ipamn")

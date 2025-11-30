@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://c5sfhsr6e0lkf"]
+
+[ext_resource type="Script" uid="uid://ckatf6evdbmnv" path="res://scenes/menu/menu.gd" id="1_e0arn"]
+[ext_resource type="PackedScene" uid="uid://ccqlv5kf3ggtr" path="res://scenes/main/head/head.tscn" id="1_klgdb"]
+[ext_resource type="Theme" uid="uid://cd7js87j345m4" path="res://assets/themes/default.tres" id="3_y1o0p"]
+[ext_resource type="PackedScene" uid="uid://dd14byg3htvt7" path="res://scenes/menu/game_tabs/game_tabs.tscn" id="5_y1o0p"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hyk8p"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_iuonh"]
+sky_material = SubResource("ProceduralSkyMaterial_hyk8p")
+
+[sub_resource type="Environment" id="Environment_k2fmo"]
+background_mode = 2
+sky = SubResource("Sky_iuonh")
+tonemap_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vom5j"]
+size = Vector2(25, 25)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_hyk8p"]
+
+[node name="Menu" type="Node3D" unique_id=2014687985]
+script = ExtResource("1_e0arn")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=874731531]
+environment = SubResource("Environment_k2fmo")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1220740039]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Head" parent="." unique_id=511883490 instance=ExtResource("1_klgdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.763313, 0)
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=2048094399]
+collision_layer = 16
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=315214475]
+mesh = SubResource("PlaneMesh_vom5j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=686551545]
+shape = SubResource("WorldBoundaryShape3D_hyk8p")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1028553439]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=220731501]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_y1o0p")
+
+[node name="GameTabs" parent="CanvasLayer/Control" unique_id=1479780025 instance=ExtResource("5_y1o0p")]
+layout_mode = 1

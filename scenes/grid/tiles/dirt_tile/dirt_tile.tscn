@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://j7xh7cu80gbi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_23hum"]
+albedo_color = Color(0.39087513, 0.18370348, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h38wq"]
+material = SubResource("StandardMaterial3D_23hum")
+size = Vector3(1, 0.25, 1)
+
+[node name="DirtTile" type="MeshInstance3D" unique_id=1769432734]
+mesh = SubResource("BoxMesh_h38wq")
