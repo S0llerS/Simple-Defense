@@ -1,16 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cj45emwc72kvg"]
+[gd_scene load_steps=10 format=3 uid="uid://c65m7aumau1sq"]
 
-[ext_resource type="Script" uid="uid://cx6hk3fn44e60" path="res://entities/monsters/monster.gd" id="1_v7kdw"]
-[ext_resource type="Script" uid="uid://be3r0njusvnsw" path="res://assets/resources/MonsterStats.gd" id="2_8gwsp"]
-[ext_resource type="PackedScene" uid="uid://bgvvpn0tee1pl" path="res://components/HealthComponent/health_component.tscn" id="2_o6qn6"]
-[ext_resource type="PackedScene" uid="uid://c0ikjf5ecskch" path="res://components/MoveComponent/move_component.tscn" id="3_tasd3"]
-[ext_resource type="PackedScene" uid="uid://bbv8xay3hndu1" path="res://components/HurtboxComponent/hurtbox_component.tscn" id="4_tasd3"]
-[ext_resource type="PackedScene" uid="uid://b511r0ycm1bka" path="res://components/HitboxComponent/hitbox_component.tscn" id="5_wsc57"]
-
-[sub_resource type="Resource" id="Resource_k0tnd"]
-script = ExtResource("2_8gwsp")
-title = "Basic Monster"
-metadata/_custom_type_script = "uid://be3r0njusvnsw"
+[ext_resource type="Script" uid="uid://cx6hk3fn44e60" path="res://entities/monsters/monster.gd" id="1_x2i1j"]
+[ext_resource type="PackedScene" uid="uid://bgvvpn0tee1pl" path="res://components/HealthComponent/health_component.tscn" id="2_nf4uj"]
+[ext_resource type="PackedScene" uid="uid://c0ikjf5ecskch" path="res://components/MoveComponent/move_component.tscn" id="3_br5fg"]
+[ext_resource type="PackedScene" uid="uid://bbv8xay3hndu1" path="res://components/HurtboxComponent/hurtbox_component.tscn" id="4_3byhw"]
+[ext_resource type="PackedScene" uid="uid://b511r0ycm1bka" path="res://components/HitboxComponent/hitbox_component.tscn" id="5_aqchv"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_73qsk"]
 
@@ -19,22 +13,21 @@ metadata/_custom_type_script = "uid://be3r0njusvnsw"
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v7kdw"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wsc57"]
-radius = 1.0
+radius = 1.5
 
 [node name="BasicMonster" type="CharacterBody3D" unique_id=1316887908 node_paths=PackedStringArray("health_component", "hitbox_component", "attack_timer", "move_component")]
 axis_lock_angular_x = true
 axis_lock_angular_z = true
-script = ExtResource("1_v7kdw")
-monster_stats = SubResource("Resource_k0tnd")
+script = ExtResource("1_x2i1j")
 health_component = NodePath("HealthComponent")
 hitbox_component = NodePath("HitboxComponent")
 attack_timer = NodePath("AttackTimer")
 move_component = NodePath("MoveComponent")
 
-[node name="HealthComponent" parent="." unique_id=1741741588 instance=ExtResource("2_o6qn6")]
+[node name="HealthComponent" parent="." unique_id=1741741588 instance=ExtResource("2_nf4uj")]
 health = 100
 
-[node name="MoveComponent" parent="." unique_id=1010141118 instance=ExtResource("3_tasd3")]
+[node name="MoveComponent" parent="." unique_id=1010141118 instance=ExtResource("3_br5fg")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=532553708]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -48,15 +41,16 @@ mesh = SubResource("BoxMesh_wsc57")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_v7kdw")
 
-[node name="HurtboxComponent" parent="." unique_id=1916317057 instance=ExtResource("4_tasd3")]
-transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 1, 0)
+[node name="HurtboxComponent" parent="." unique_id=1916317057 instance=ExtResource("4_3byhw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponent" unique_id=773342977]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_v7kdw")
 
-[node name="HitboxComponent" parent="." unique_id=822219714 instance=ExtResource("5_wsc57")]
+[node name="HitboxComponent" parent="." unique_id=822219714 instance=ExtResource("5_aqchv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 0
 collision_mask = 4

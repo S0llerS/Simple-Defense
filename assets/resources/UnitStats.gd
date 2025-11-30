@@ -8,7 +8,10 @@ extends Resource
 @export var health : int = 10
 
 @export var projectile_damage : int = 2
+@export var projectile_size : float = 0.25
+
 @export var n_projectiles : int = 1
+
 @export var fire_speed : float = 0.2
 
 @export var attack_range : float = 10.0
