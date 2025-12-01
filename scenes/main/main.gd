@@ -7,6 +7,9 @@ var unit_scene : PackedScene
 var preview_unit : Unit
 
 func _ready() -> void:
+	Stats.money = 100
+	Stats.wave = 1
+	
 	Global.dragging_started.connect(_on_dragging_started)
 	Global.dragging_ended.connect(_on_dragging_ended)
 
@@ -52,15 +55,10 @@ func _physics_process(_delta: float) -> void:
 	if intersection:
 		preview_unit.global_position = intersection
 		
-		if preview_unit.hurtbox_component.has_overlapping_areas():
+		if preview_unit.hurtbox_component.has_overlapping_areas() or is_inside_unit_area(intersection):
 			preview_unit.range_component.set_visuals_mode(true, false)
 		else:
 			preview_unit.range_component.set_visuals_mode(true, true)
-	
-	if is_inside_unit_area(intersection):
-		preview_unit.range_component.set_visuals_mode(true, false)
-	else:
-		preview_unit.range_component.set_visuals_mode(true, true)
 
 func is_inside_unit_area(pos: Vector3):
 	return pos.x < -12.5 or pos.x > 12.5 or pos.z < -12.5 or pos.z > 12.5

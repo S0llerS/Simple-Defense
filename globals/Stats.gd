@@ -2,7 +2,7 @@ extends Node
 
 # variables
 var money : int = 1000
-var wave : int = 0
+var wave : int = 1
 
 # signals
 signal money_changed

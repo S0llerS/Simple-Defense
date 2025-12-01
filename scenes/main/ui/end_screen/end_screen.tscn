@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dssgw6h63fqjr"]
+[gd_scene load_steps=2 format=3 uid="uid://dssgw6h63fqjr"]
+
+[ext_resource type="Script" uid="uid://dd5rlb86sfeeq" path="res://scenes/main/ui/end_screen/end_screen.gd" id="1_alj8n"]
 
 [node name="EndScreen" type="Control" unique_id=682534823]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_alj8n")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1033855233]
 layout_mode = 1
@@ -54,3 +57,5 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Retry"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Retry" to="." method="_on_retry_pressed"]

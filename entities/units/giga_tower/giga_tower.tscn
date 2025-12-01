@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cp4uk8f5vph6m"]
+[gd_scene load_steps=11 format=3 uid="uid://cp4uk8f5vph6m"]
 
 [ext_resource type="Script" uid="uid://bowa4bjdiddrk" path="res://entities/units/unit.gd" id="1_kdgsv"]
 [ext_resource type="Script" uid="uid://bkatemoust6un" path="res://assets/resources/UnitStats.gd" id="2_ki22a"]
@@ -11,12 +11,17 @@
 script = ExtResource("2_ki22a")
 title = "Giga Tower"
 price = 500
+max_health = 100
 projectile_damage = 40
-fire_speed = 1.8
+fire_speed = 2.2
 attack_range = 8.0
 metadata/_custom_type_script = "uid://bkatemoust6un"
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jpchh"]
+albedo_color = Color(0.18431373, 0.047058824, 0.18431373, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_1xfyr"]
+material = SubResource("StandardMaterial3D_jpchh")
 size = Vector3(1.4, 1.4, 1.4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hh1ji"]

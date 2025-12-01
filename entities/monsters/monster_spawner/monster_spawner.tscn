@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8bbn80bxsg30"]
+[gd_scene load_steps=6 format=3 uid="uid://c8bbn80bxsg30"]
 
 [ext_resource type="Script" uid="uid://dn8kw3exdthjl" path="res://entities/monsters/monster_spawner/monster_spawner.gd" id="1_8slle"]
 [ext_resource type="PackedScene" uid="uid://cj45emwc72kvg" path="res://entities/monsters/basic_monster/basic_monster.tscn" id="2_bckms"]
+[ext_resource type="PackedScene" uid="uid://c65m7aumau1sq" path="res://entities/monsters/fast-monster/fast_monster.tscn" id="3_gyihw"]
+[ext_resource type="PackedScene" uid="uid://ufvx8qkorxv" path="res://entities/monsters/tank-monster/tank_monster.tscn" id="4_1i20n"]
+[ext_resource type="PackedScene" uid="uid://c3gfx2ctbj5lo" path="res://entities/monsters/boss/boss.tscn" id="5_rrirv"]
 
 [node name="MonsterSpawner" type="Node3D" unique_id=617661787]
 script = ExtResource("1_8slle")
-monster_scene = ExtResource("2_bckms")
+basic_monster = ExtResource("2_bckms")
+fast_monster = ExtResource("3_gyihw")
+tank_monster = ExtResource("4_1i20n")
+boss = ExtResource("5_rrirv")
 
 [node name="WaveTimer" type="Timer" parent="." unique_id=1652525699]
 unique_name_in_owner = true

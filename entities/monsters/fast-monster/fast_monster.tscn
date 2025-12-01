@@ -1,12 +1,26 @@
-[gd_scene load_steps=10 format=3 uid="uid://c65m7aumau1sq"]
+[gd_scene load_steps=13 format=3 uid="uid://c65m7aumau1sq"]
 
 [ext_resource type="Script" uid="uid://cx6hk3fn44e60" path="res://entities/monsters/monster.gd" id="1_x2i1j"]
 [ext_resource type="PackedScene" uid="uid://bgvvpn0tee1pl" path="res://components/HealthComponent/health_component.tscn" id="2_nf4uj"]
+[ext_resource type="Script" uid="uid://be3r0njusvnsw" path="res://assets/resources/MonsterStats.gd" id="2_w2468"]
 [ext_resource type="PackedScene" uid="uid://c0ikjf5ecskch" path="res://components/MoveComponent/move_component.tscn" id="3_br5fg"]
 [ext_resource type="PackedScene" uid="uid://bbv8xay3hndu1" path="res://components/HurtboxComponent/hurtbox_component.tscn" id="4_3byhw"]
 [ext_resource type="PackedScene" uid="uid://b511r0ycm1bka" path="res://components/HitboxComponent/hitbox_component.tscn" id="5_aqchv"]
 
+[sub_resource type="Resource" id="Resource_ao7yv"]
+script = ExtResource("2_w2468")
+max_health = 6
+melee_damage = 1
+move_speed = 7.0
+attack_speed = 1.0
+kill_reward = 50
+metadata/_custom_type_script = "uid://be3r0njusvnsw"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrht4"]
+albedo_color = Color(0.47567725, 0.475677, 8.663535e-07, 1)
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_73qsk"]
+material = SubResource("StandardMaterial3D_nrht4")
 
 [sub_resource type="BoxMesh" id="BoxMesh_wsc57"]
 
@@ -19,6 +33,7 @@ radius = 1.5
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_x2i1j")
+monster_stats = SubResource("Resource_ao7yv")
 health_component = NodePath("HealthComponent")
 hitbox_component = NodePath("HitboxComponent")
 attack_timer = NodePath("AttackTimer")
