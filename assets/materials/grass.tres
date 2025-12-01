@@ -1,0 +1,25 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dd52jpauoyyhf"]
+
+[ext_resource type="Shader" uid="uid://cqdsdv8ek5616" path="res://assets/shaders/grass_shader.gdshader" id="1_prref"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_b1x3f"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_a8run"]
+noise = SubResource("FastNoiseLite_b1x3f")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_prref")
+shader_parameter/sway = 1.14
+shader_parameter/sway_ = 0.34
+shader_parameter/sway_pow = 1.3
+shader_parameter/grass_roughness = 0.3
+shader_parameter/sway_noise_sampeling_scale = 0.12
+shader_parameter/sway_time_scale = 0.04
+shader_parameter/sway_dir = Vector3(1, 0, 1)
+shader_parameter/sway_noise = SubResource("NoiseTexture2D_a8run")
+shader_parameter/color_scale = 0.3
+shader_parameter/color_grad_height = -0.5
+shader_parameter/top_color = Color(0, 0.5701206, 0.16671437, 1)
+shader_parameter/bot_color = Color(0, 0, 0, 1)
+shader_parameter/grass_scale = Vector3(1, 1, 1)
