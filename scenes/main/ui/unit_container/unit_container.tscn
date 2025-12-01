@@ -37,6 +37,7 @@ layout_mode = 2
 unit_scene = ExtResource("5_bpmmd")
 
 [node name="Close" type="Button" parent="MarginContainer/VBoxContainer" unique_id=607456595]
+visible = false
 layout_mode = 2
 text = "Close"
 

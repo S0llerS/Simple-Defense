@@ -20,6 +20,8 @@ config/icon="res://icon.svg"
 Global="*res://globals/Global.gd"
 Stats="*res://globals/Stats.gd"
 PopupManager="*uid://sfq4rd66bxw2"
+SoundPlayer="*uid://cn0ud0acjb53o"
+MusicPlayer="*uid://dxt3tdlhb27st"
 
 [display]
 

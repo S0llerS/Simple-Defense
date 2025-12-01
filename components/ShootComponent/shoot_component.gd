@@ -14,6 +14,8 @@ func shoot(unit_stats: UnitStats):
 		if !get_parent().target:
 			return
 		
+		SoundPlayer.play_sound(SoundPlayer.BASIC_SHOOT)
+		
 		var instance: Projectile = projectile_scene.instantiate()
 		get_tree().root.add_child(instance)
 		

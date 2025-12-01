@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cve082tko23l6"]
+[gd_scene load_steps=6 format=3 uid="uid://cve082tko23l6"]
 
 [ext_resource type="Script" uid="uid://bbdp3c1ce07bd" path="res://scenes/main/ui/ui.gd" id="1_2q31f"]
 [ext_resource type="Theme" uid="uid://cd7js87j345m4" path="res://assets/themes/default.tres" id="2_nf0va"]
 [ext_resource type="PackedScene" uid="uid://b0swg4gh35ntl" path="res://scenes/main/ui/unit_container/unit_container.tscn" id="3_3q8gq"]
 [ext_resource type="PackedScene" uid="uid://p4ywuh10ffdg" path="res://scenes/main/ui/unit_upgrade/unit_upgrade.tscn" id="3_ex8bf"]
+[ext_resource type="PackedScene" uid="uid://dssgw6h63fqjr" path="res://scenes/main/ui/end_screen/end_screen.tscn" id="5_fhd3w"]
 
 [node name="UI" type="CanvasLayer" unique_id=905987130]
 script = ExtResource("1_2q31f")
@@ -26,21 +27,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer" unique_id=565753664]
+[node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer" unique_id=1417926808]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="Health" type="Label" parent="Control/MarginContainer/HBoxContainer" unique_id=1368593240]
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/PanelContainer" unique_id=1653808146]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/PanelContainer/MarginContainer" unique_id=565753664]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Health" type="Label" parent="Control/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1368593240]
 unique_name_in_owner = true
 layout_mode = 2
 text = "HP: 100"
 
-[node name="Money" type="Label" parent="Control/MarginContainer/HBoxContainer" unique_id=1615097910]
+[node name="Money" type="Label" parent="Control/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1615097910]
 unique_name_in_owner = true
 layout_mode = 2
 text = "$100"
 
-[node name="Wave" type="Label" parent="Control/MarginContainer/HBoxContainer" unique_id=1272282344]
+[node name="Wave" type="Label" parent="Control/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1272282344]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -56,3 +64,7 @@ layout_mode = 2
 
 [node name="UnitContainer" parent="Control/MarginContainer/HBoxContainerUnit" unique_id=734265126 instance=ExtResource("3_3q8gq")]
 layout_mode = 2
+
+[node name="EndScreen" parent="Control" unique_id=682534823 instance=ExtResource("5_fhd3w")]
+visible = false
+layout_mode = 1

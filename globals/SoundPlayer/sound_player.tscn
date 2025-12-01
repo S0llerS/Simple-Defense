@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn0ud0acjb53o"]
+
+[ext_resource type="Script" uid="uid://d121wsenve0qh" path="res://globals/SoundPlayer/sound_player.gd" id="1_045dx"]
+
+[node name="SoundPlayer" type="Node" unique_id=1969635762]
+script = ExtResource("1_045dx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2043693236]
+bus = &"SFX"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=20654286]
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="." unique_id=1080284557]
+bus = &"SFX"
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="." unique_id=1639310389]
+bus = &"SFX"
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="." unique_id=1505482231]
+bus = &"SFX"
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="." unique_id=856994248]
+bus = &"SFX"
+
+[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="." unique_id=1658265235]
+bus = &"SFX"
+
+[node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="." unique_id=748467851]
+bus = &"SFX"
